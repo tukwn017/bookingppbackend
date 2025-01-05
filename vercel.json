@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "routes": [
+  "rewrites": [
     {
       "source": "/slots",
       "destination": "/api/available-slots"
@@ -10,15 +10,15 @@
       "destination": "/api/create-booking"
     },
     {
-        "source": "/slots",
-      "destination": "/api/available-slots",
-      "statusCode": 301
-    }
-  ],
-  "rewrites": [
-    {
       "source": "/user/:id",
       "destination": "/api/user?id=:id"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/slots",
+      "destination": "/api/available-slots",
+      "statusCode": 301
     }
   ],
   "headers": [
@@ -33,5 +33,3 @@
     }
   ]
 }
-
-  
