@@ -1,10 +1,37 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "api/**/*.js",
-        "use": "@vercel/node"
-      }
-    ]
-  }
+  "version": 2,
+  "routes": [
+    {
+      "source": "/slots",
+      "destination": "/api/available-slots"
+    },
+    {
+      "source": "/booking",
+      "destination": "/api/create-booking"
+    },
+    {
+        "source": "/slots",
+      "destination": "/api/available-slots",
+      "statusCode": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/user/:id",
+      "destination": "/api/user?id=:id"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/*",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}
+
   
